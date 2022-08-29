@@ -1,14 +1,14 @@
 #include <stdio.h>
 
 typedef struct {
-  int vetor[3];
+  int vetor[4];
 }numeros;
 
-numeros ler3Numeros () {
+numeros ler4Numeros () {
 
   numeros numerosUsuario;
     
-  for(int i = 0; i<3; i++) {
+  for(int i = 0; i<4; i++) {
     printf("Digite o %i valor \n", i+1);
     scanf("%i", &numerosUsuario.vetor[i]);
     }
@@ -19,9 +19,9 @@ numeros ler3Numeros () {
 
 int main()
 {   
-  numeros numerosEntrada = ler3Numeros();
+  numeros numerosEntrada = ler4Numeros();
 
-  for(int j = 0; j<3; j++) {
+  for(int j = 0; j<4; j++) {
     printf("%i \n", numerosEntrada.vetor[j]);
   }
     
