@@ -12,13 +12,16 @@ Cliente cadastrarCliente() {
   
   Cliente clienteAtual;
   printf("Digite o nome \n");
-  fgets(clienteAtual.nome,max,stdin);
+  fflush(stdin);
+  fgets(clienteAtual.nome,21,stdin);
 
   printf("Digite o nascimento \n");
-  fgets(clienteAtual.dataNascimento,max,stdin);
+  fflush(stdin);
+  fgets(clienteAtual.dataNascimento,12,stdin);
 
   printf("Digite o CPF \n");
-  fgets(clienteAtual.cpf,max,stdin);
+  fflush(stdin);
+  fgets(clienteAtual.cpf,16,stdin);
 
   printf("Digite o sexo \n");
   scanf("%c", &clienteAtual.sexo);
