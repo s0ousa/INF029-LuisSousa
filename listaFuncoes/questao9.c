@@ -10,16 +10,24 @@ typedef struct {
 
 int validarNome(char nome[]) {
   int i = 0;
-  while(nome[i]!='\0') {
+  while(nome[i]!='\n') {
      i++; 
   }
   if(i>20) {
     return 0;
-  }else return 1;
-      
+  }else {
+    return 1;
+    }   
 
 }
 
+int validarNome2(char nome[]) { 
+  if(strlen(nome)>20){
+    return 0;
+  } else {
+    return 1;
+  }
+}
 
 Cliente cadastrarCliente() {
   
@@ -32,14 +40,17 @@ Cliente cadastrarCliente() {
   
   while(nomeValido!=1) {
     printf("Digite o nome \n");
-    fflush(stdin);
-    fgets(clienteAtual.nome,21,stdin); // projeeto escola, procurar por isso
-  if(validarNome(clienteAtual.nome)==1) {
-    nomeValido = 1;
-    printf("Nome válido! \n");
-  } else {
-    printf("Nome inválido, o nome se limita a 20 caracteres \n");
+    
+    scanf(" %s", clienteAtual.nome);
+    //fgets(clienteAtual.nome,21,stdin); // projeeto escola, procurar por isso   
+    //getchar();lui
+   printf("%i",validarNome(clienteAtual.nome));
+    printf("%s", clienteAtual.nome);
+
+    if(validarNome(clienteAtual.nome)==1) {
+      nomeValido = 1;
     }
+    
   }
   
 
