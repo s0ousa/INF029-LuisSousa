@@ -4,3 +4,5 @@ Este é o repositório referente às atividades da disciplina de Laboratório de
 
 Aluno: Luis André S. Sousa.
 Docente: Renato Novais.
+
+Link do repositório da disciplina: https://github.com/renatoln/INF029
