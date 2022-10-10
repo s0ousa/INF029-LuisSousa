@@ -147,7 +147,7 @@ DataQuebrada quebraData(char data[]){
  */
 
 int validaAno(int ano) {
-  int anoValido = 0;
+ 
   if(ano<=0 || ano>2022) {
     return 0;
   } else return 1;
@@ -164,30 +164,82 @@ int anoEhBissexto(int ano) {
   return anoBissexto;
 }
 
-//// ############################### CHECA ESSA FUNCAO BISSEXTO LUISSSSSSSSSSSS ####
+int validaMes (int mes) {
+  if(mes <=0 || mes>12) {
+    return 0;
+  } else return 1;
+}
+
+int validaDia (dia, mes, ano) {
+
+  if(dia <=0) {
+    return 0;
+  }
+
+  int mesesTrinta[] = {4,6,9,11};
+  //int mesesTrintaUm[] = {1,3,5,7,8,10,12};
+  int anoBissexto = anoEhBissexto(ano);
+
+  int mesTemTrinta = 0;
+ // int mesTemTrintaUm = 0;
+
+
+  for(int i = 0;i<4;i++) {
+    if (mesesTrinta[i] == mes) {
+      mesTemTrinta = 1;
+    }
+  }
+
+ /* for(int i = 0; i<7;i++) {
+    if(mesesTrintaUm == mes) {
+      mesTemTrintaUm = 1;
+    }
+  } */
+
+  if(mes==2) {
+    if( dia>28 && anoBissexto ==0) {
+      return 0;
+    }
+    if (dia>29 && anoBissexto ==1){
+      return 0;
+    }
+    
+  } else if( mesTemTrinta ==1) {
+    if (dia>30){
+      return 0;
+    } 
+  } else if(dia>31) {
+    return 0;
+  }
+
+  return 1;
+}
+
+
 int q1(char data[])
 {
   int datavalida = 1;
 
   //quebrar a string data em strings sDia, sMes, sAno
-
   DataQuebrada dataQuebrada = quebraData(data);
 
-  if(dataQuebrada.iAno<=0 || dataQuebrada.iAno>2022) {
+  if(validaAno(dataQuebrada.iAno)==0) {
     datavalida= 0;
-  } else if()
+  } 
 
-  if( dataQueb)
+  if(validaMes(dataQuebrada.iMes)== 0) {
+    datavalida = 0;
+  }
 
-  
+  if(validaDia(dataQuebrada.iDia, dataQuebrada.iMes, dataQuebrada.iAno)== 0) {
+    datavalida = 0;
+  }
+
   //if (dataQuebrada.valido == 0) return 0;
 
-  //printf("%s\n", data);
+  printf("%s\n", data);
 
-  if (datavalida)
-      return 1;
-  else
-      return 0;
+  return datavalida ;
 }
 
 
