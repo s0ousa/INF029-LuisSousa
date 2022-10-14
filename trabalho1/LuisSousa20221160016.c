@@ -170,7 +170,7 @@ int validaMes (int mes) {
   } else return 1;
 }
 
-int validaDia (dia, mes, ano) {
+int validaDia (int dia, int mes,int ano) {
 
   if(dia <=0) {
     return 0;
@@ -237,7 +237,7 @@ int q1(char data[])
 
   //if (dataQuebrada.valido == 0) return 0;
 
-  printf("%s\n", data);
+  //printf("%s\n", data);
 
   return datavalida ;
 }
@@ -261,9 +261,17 @@ int q1(char data[])
 DiasMesesAnos q2(char datainicial[], char datafinal[])
 {
 
+    DataQuebrada dataInicialQ = quebraData(datainicial);
+    DataQuebrada dataFinalQ = quebraData(datafinal);
+
+
+  
+  
     //calcule os dados e armazene nas três variáveis a seguir
     DiasMesesAnos dma;
 
+  
+  
     if (q1(datainicial) == 0){
       dma.retorno = 2;
       return dma;
@@ -271,10 +279,28 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
       dma.retorno = 3;
       return dma;
     }else{
-      //verifique se a data final não é menor que a data inicial
-      
-      //calcule a distancia entre as datas
 
+
+            //verifique se a data final não é menor que a data inicial
+
+        if(dataInicialQ.iAno>dataFinalQ.iAno) {
+          dma.retorno = 4;
+          return dma;
+        }
+
+        if(dataInicialQ.iAno==dataFinalQ.iAno && dataInicialQ.iMes>dataFinalQ.iMes) {
+          dma.retorno = 4;
+          return dma;
+        }
+
+        if(dataInicialQ.iAno==dataFinalQ.iAno && dataInicialQ.iMes==dataFinalQ.iMes && dataInicialQ.iDia> dataFinalQ.iDia) {
+          dma.retorno = 4;
+          return dma;
+        }
+      
+      
+      //calcule a distancia entre as datas ------------- PAREI AQUI ---------
+      int contDias = 
 
       //se tudo der certo
       dma.retorno = 1;
