@@ -297,18 +297,17 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
           dma.retorno = 4;
           return dma;
         }
-      
+      } 
       
       //calcule a distancia entre as datas ------------- PAREI AQUI ---------
       int contDias = 
-
-      //se tudo der certo
+  
+      // setudo der certo
       dma.retorno = 1;
       return dma;
-      
-    }
-    
 }
+
+
 
 /*
  Q3 = encontrar caracter em texto
@@ -318,16 +317,21 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
     uma string texto, um caracter c e um inteiro que informa se é uma pesquisa Case Sensitive ou não. Se isCaseSensitive = 1, a pesquisa deve considerar diferenças entre maiúsculos e minúsculos.
         Se isCaseSensitive != 1, a pesquisa não deve  considerar diferenças entre maiúsculos e minúsculos.
  @saida
-    Um número n >= 0.
- */
-int q3(char *texto, char c, int isCaseSensitive)
+    Um número n >= 0.sitive)
 {
     int qtdOcorrencias = -1;
 
     return qtdOcorrencias;
 }
 
+*/
+int q3(char *texto, char c, int isCaseSen){
+
+      
+    }
 /*
+
+
  Q4 = encontrar palavra em texto
  @objetivo
     Pesquisar todas as ocorrências de uma palavra em um texto
