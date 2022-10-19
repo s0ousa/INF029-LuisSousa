@@ -242,6 +242,52 @@ int q1(char data[])
   return datavalida ;
 }
 
+int calculaDias(int dia, int mes, int ano) {
+  int mesesTrinta[] = {4,6,9,11};
+  int mesesTrintaUm[] = {1,3,5,7,8,10,12};
+  
+  int totalDias = 0;
+  
+  int diasAnos = (ano-1)*365;
+  int anosBissextosDecorridos = ano/4;
+  diasAnos +=anosBissextosDecorridos;
+
+    printf("%i\n", diasAnos);
+
+  for(int i = 0; i <4;i++) {
+    if(mes > mesesTrinta[i]) {
+      totalDias += 30;
+    }
+    
+  }
+
+
+
+  for(int i = 0; i <7;i++) {
+    if(mes > mesesTrintaUm[i]) {
+      totalDias += 31;
+    }
+ 
+  }
+   
+
+    
+  if(mes>2) {
+    if(anoEhBissexto(ano)==1) {
+       totalDias +=29;   
+    } else {
+      totalDias +=28;
+    }
+  }
+
+ 
+  totalDias += dia;
+  
+  totalDias += diasAnos;
+ 
+ return totalDias; 
+}
+
 
 
 /*
@@ -269,7 +315,12 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
   
     //calcule os dados e armazene nas três variáveis a seguir
     DiasMesesAnos dma;
-
+    int diaInicial = dataInicialQ.iDia;
+    int mesInicial = dataInicialQ.iMes;
+    int anoInicial = dataInicialQ.iAno;
+    int diaFinal = dataFinalQ.iDia;
+    int mesFinal = dataFinalQ.iMes;
+    int anoFinal = dataFinalQ.iAno;
   
   
     if (q1(datainicial) == 0){
@@ -283,25 +334,42 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
 
             //verifique se a data final não é menor que a data inicial
 
-        if(dataInicialQ.iAno>dataFinalQ.iAno) {
+        if(anoInicial>anoFinal) {
           dma.retorno = 4;
           return dma;
         }
 
-        if(dataInicialQ.iAno==dataFinalQ.iAno && dataInicialQ.iMes>dataFinalQ.iMes) {
+        if(anoInicial==anoFinal && mesInicial>mesFinal) {
           dma.retorno = 4;
           return dma;
         }
 
-        if(dataInicialQ.iAno==dataFinalQ.iAno && dataInicialQ.iMes==dataFinalQ.iMes && dataInicialQ.iDia> dataFinalQ.iDia) {
+        if(anoInicial==anoFinal && mesInicial==mesFinal && diaInicial> diaFinal) {
           dma.retorno = 4;
           return dma;
         }
       } 
       
-      //calcule a distancia entre as datas ------------- PAREI AQUI ---------
-      int contDias = 
+      //calcule a distancia entre as datas 
+      
+      int totalDiasDI = calculaDias(diaInicial,mesInicial,anoInicial);
+      int totalDiasDF = calculaDias(diaFinal,mesFinal,anoFinal);
   
+      int diferencaEmDias = totalDiasDF - totalDiasDi;
+
+    //funcionandoooooo
+  
+      int auxDias = diferencaEmDias;
+      dma.qtdAnos = auxDias/365;
+      auxDias = auxDias - (qntdAnos*365);
+
+      
+      dma.qtdMeses = auxDias/30;
+      auxDias = auxDias - (qntdMeses*30);
+
+      dma.qtdDias = auxDias;
+
+    // testar esse ultimo bloco       
       // setudo der certo
       dma.retorno = 1;
       return dma;
