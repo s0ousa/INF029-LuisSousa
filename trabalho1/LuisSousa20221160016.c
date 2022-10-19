@@ -252,7 +252,7 @@ int calculaDias(int dia, int mes, int ano) {
   int anosBissextosDecorridos = ano/4;
   diasAnos +=anosBissextosDecorridos;
 
-    printf("%i\n", diasAnos);
+ 
 
   for(int i = 0; i <4;i++) {
     if(mes > mesesTrinta[i]) {
@@ -355,21 +355,22 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
       int totalDiasDI = calculaDias(diaInicial,mesInicial,anoInicial);
       int totalDiasDF = calculaDias(diaFinal,mesFinal,anoFinal);
   
-      int diferencaEmDias = totalDiasDF - totalDiasDi;
+      int diferencaEmDias = totalDiasDF - totalDiasDI;
 
     //funcionandoooooo
   
       int auxDias = diferencaEmDias;
-      dma.qtdAnos = auxDias/365;
-      auxDias = auxDias - (qntdAnos*365);
+  
+     dma.qtdAnos = auxDias/365;
+      auxDias = auxDias - (dma.qtdAnos*365);
 
       
       dma.qtdMeses = auxDias/30;
-      auxDias = auxDias - (qntdMeses*30);
+      auxDias = auxDias - (dma.qtdMeses*30);
 
       dma.qtdDias = auxDias;
 
-    // testar esse ultimo bloco       
+ 
       // setudo der certo
       dma.retorno = 1;
       return dma;
@@ -388,7 +389,7 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
     Um número n >= 0.sitive)
 {
     int qtdOcorrencias = -1;
-
+      
     return qtdOcorrencias;
 }
 
@@ -432,7 +433,9 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
 
 int q5(int num)
 {
+    int contaCasas = 0;
 
+    
     return num;
 }
 
