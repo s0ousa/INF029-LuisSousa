@@ -432,11 +432,41 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
  */
 
 int q5(int num)
-{
+{  
+    int auxNum = num;
     int contaCasas = 0;
-
     
-    return num;
+      while(auxNum%10!=0 || auxNum%100!=0) {
+        auxNum = auxNum/10;
+        contaCasas++;
+      }
+
+
+    int tamanho = contaCasas;
+    //int minhasCasas[tamanho];
+    auxNum = num;
+    
+    
+    /*for(int i = 0; i<contaCasas;i++) {
+        minhasCasas[i] = auxNum%10;
+        auxNum = auxNum/10;
+    }
+    
+    */
+    int saida= 0;
+    
+    for(int i = 0; i<contaCasas;i++) {
+        saida = saida + (auxNum%10);
+        if(i+1==contaCasas) {
+            return saida;
+        }else {
+            saida*=10;
+            auxNum = auxNum/10;
+        }
+        
+    
+    }
+    return saida;
 }
 
 /*
@@ -451,6 +481,28 @@ int q5(int num)
 
 int q6(int numerobase, int numerobusca)
 {
-    int qtdOcorrencias;
+    int qtdOcorrencias = 0;
+    int contaCasas;
+    int auxNum = numerobusca;
+    int baseNum = 1; //o numero q procuro eh centena, dezena?
+    
+    while(auxNum%10!=0 || auxNum%100!=0) {
+        auxNum = auxNum/10;
+        contaCasas++;
+        baseNum *= 10;
+    }
+    
+    int auxBase = numerobase;
+    
+    while(auxBase>0) {
+        if(auxBase%baseNum==numerobusca){
+            qtdOcorrencias++;
+        }
+        auxBase = auxBase/10;
+      
+        
+    }
+    
+   
     return qtdOcorrencias;
 }
