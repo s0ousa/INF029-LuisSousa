@@ -387,18 +387,41 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
         Se isCaseSensitive != 1, a pesquisa não deve  considerar diferenças entre maiúsculos e minúsculos.
  @saida
     Um número n >= 0.sitive)
-{
-    int qtdOcorrencias = -1;
-      
-    return qtdOcorrencias;
-}
+
 
 */
 int q3(char *texto, char c, int isCaseSen){
+    int qtdOcorrencias = 0;
+  
+      if(isCaseSen ==1) {
+        for(int i = 0; texto[i] != '\0'; i++){
+            if(texto[i] == c){
+            qtdOcorrencias++;
+            }
+           //printf("%i \n", qtdOcorrencias);
+        }  
+        //puts("Saiu do primeiro for");
+      } else { // não for case sens
+            if ( c>='A' && c<='Z') {
+                c = c+32;
+            }
+            for(int i = 0; texto[i] != '\0'; i++){
+              
+                if ( texto[i]>='A' && texto[i]<='Z') {
+                  texto[i] = texto[i]+32;
+                }
+              
+                if(texto[i] == c){
+                  qtdOcorrencias++;
+                }
+        
+            }
+        } 
 
-      
-    }
-/*
+ // printf("QUANTIDADE DE OCORRENCIAS ANTES DE SAIR DA FUNCAO  = %i \n", qtdOcorrencias);
+  return qtdOcorrencias;
+}
+  /*
 
 
  Q4 = encontrar palavra em texto
@@ -456,6 +479,7 @@ int q5(int num)
     int saida= 0;
     
     for(int i = 0; i<contaCasas;i++) {
+      
         saida = saida + (auxNum%10);
         if(i+1==contaCasas) {
             return saida;
