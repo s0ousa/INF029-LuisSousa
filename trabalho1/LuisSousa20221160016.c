@@ -439,9 +439,27 @@ int q3(char *texto, char c, int isCaseSen){
  */
 int q4(char *strTexto, char *strBusca, int posicoes[30])
 {
-    int qtdOcorrencias = -1;
+  int qtdOcorrencias = 0;
+  size_t tamStrBusca = strlen(strBusca) - 1; // 2 
+  int aux = 0;
+  int index = 0;
+  
+  for (int i = 0; strTexto[i] != '\0'; i++) {
+    if (strTexto[i] == strBusca[aux]) {
+      aux++;
+    } else {
+      aux = 0;
+    }
 
-    return qtdOcorrencias;
+    if (aux == tamStrBusca + 1) {
+      posicoes[index] = (i + 1) - tamStrBusca; 
+      posicoes[index + 1] = i + 1;             
+      index += 2;
+      qtdOcorrencias++;
+    }
+  }
+
+  return qtdOcorrencias;
 }
 
 /*
